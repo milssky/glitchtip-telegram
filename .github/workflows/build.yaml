@@ -43,3 +43,13 @@ jobs:
         with:
           name: ${{ matrix.artifact_name }}
           path: target/${{ matrix.target }}/release/glitchtip-telegram${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+
+  docker-build:
+    name: Docker build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t glitchtip-telegram:ci .
