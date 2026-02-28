@@ -12,14 +12,17 @@ use crate::templates::format_payload;
 #[derive(clap::Parser)]
 struct Config {
     // Telegram bot token for sending messages.
-    #[clap(long, env)]
+    #[arg(long, env)]
     bot_token: String,
     // Target chat or channel ID to send notifications to.
-    #[clap(long, env)]
+    #[arg(long, env)]
     chat_id: String,
     // Port for the webhook HTTP server.
-    #[clap(long, env)]
+    #[arg(long, env)]
     port: u16,
+    // Webhook path
+    #[arg(long, env, default_value = "webhook")]
+    webhook: String
 }
 
 #[derive(Clone)]
@@ -107,8 +110,9 @@ async fn main() {
     };
 
     // Build HTTP routes; `/webhook` will handle incoming JSON payloads.
+    let webhook_path = format!("/{}", config.webhook);
     let app = Router::new()
-        .route("/webhook", post(webhook))
+        .route(&webhook_path, post(webhook))
         .with_state(app_state);
 
     // Construct the address to listen at the specified port.
