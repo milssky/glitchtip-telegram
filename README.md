@@ -18,11 +18,13 @@ docker run -d \
   -e BOT_TOKEN=YOUR_BOT_TOKEN \
   -e CHAT_ID=YOUR_CHAT_ID \
   -e PORT=8000 \
+  -e WEBHOOK=secret-webhook \  # Optional
   --name glitchtip-telegram \
   glitchtip-telegram
 ```
 
-The service listens on port 8000. Environment variables: `BOT_TOKEN`, `CHAT_ID`, `PORT`.
+The service listens on port 8000. Environment variables: `BOT_TOKEN`, `CHAT_ID`, `PORT`, `WEBHOOK`.
+`WEBHOOK` env are optional. By default `WEBHOOK=/webhook`.
 
 ## Configuration
 
