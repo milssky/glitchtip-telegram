@@ -46,7 +46,7 @@ docker run -d \
   -e PORT=8000 \
   -e WEBHOOK=secret-webhook \
   --name glitchtip-telegram \
-  ghcr.io/milssky/glitchtip-telegram:latest
+  ghcr.io/kondratevdev/glitchtip-telegram:latest
 ```
 
 ## Configuration
