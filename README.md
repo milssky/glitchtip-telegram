@@ -31,11 +31,6 @@ The service listens on port 8000. Environment variables: `BOT_TOKEN`, `CHAT_ID`,
 When a release is published (or the release workflow is run manually),
 you can download ready-to-use binaries from the release page assets.
 
-Docker image is published to:
-
-- `ghcr.io/<owner>/<repo>:<tag>`
-- `ghcr.io/<owner>/<repo>:latest`
-
 Example for this repository:
 
 ```bash
