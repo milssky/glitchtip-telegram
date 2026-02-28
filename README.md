@@ -3,6 +3,12 @@
 HTTP webhook relay that receives [Glitchtip](https://glitchtip.com/)
 notifications and forwards them to Telegram.
 
+## Glitchtip webhook setup
+
+In Glitchtip, when adding an alert rule or notification integration,
+choose **General (slack-compatible) Webhook** as the webhook type.
+Use this service’s URL as the webhook endpoint.
+
 ## Running (Docker)
 
 ```bash
