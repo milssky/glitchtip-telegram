@@ -109,7 +109,7 @@ async fn main() {
         chat_id: config.chat_id,
     };
 
-    // Build HTTP routes; `/webhook` will handle incoming JSON payloads.
+    // Build HTTP routes; `webhook` will handle incoming JSON payloads.
     let webhook_path = format!("/{}", config.webhook);
     let app = Router::new()
         .route(&webhook_path, post(webhook))
